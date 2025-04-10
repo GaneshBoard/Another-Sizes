@@ -1,0 +1,236 @@
+/* General styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Default font */
+}
+
+/* To edit the font, replace 'Roboto' with another font name from Google Fonts or a local font */
+
+/* Moving Text Bar */
+.marquee {
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between; /* Space between logo and buttons */
+    align-items: center;
+    padding: 1rem; /* Standard padding */
+    flex-wrap: wrap; /* Prevent wrapping to keep everything in one line */
+}
+
+nav img {
+    margin-left: 10; /* Align logo to the left */
+    width: 6rem; /* Standard logo size */
+}
+
+nav div {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 1.5rem; /* Add spacing between buttons */
+    flex: 1; /* Allow buttons to take remaining space */
+    margin: 0; /* Remove extra spacing */
+}
+
+nav button {
+    margin-right: 1rem;
+    font-family: sans-serif;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav button:hover {
+    color: gray;
+}
+
+nav div a img {
+    transition: transform 0.2s;
+}
+
+nav div a img:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 640px) {
+    nav {
+        flex-wrap: nowrap; /* Disable wrapping for larger screens */
+        padding: 1rem; /* Restore padding for larger screens */
+    }
+
+    nav img {
+        width: 6rem; /* Restore logo size for larger screens */
+        margin-left: 1.5rem; /* Restore left margin for larger screens */
+    }
+
+    nav div {
+        justify-content: flex-end; /* Align buttons to the right */
+        margin-top: 0; /* Remove spacing for larger screens */
+    }
+}
+
+/* Product Cards */
+.card {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-weight: bold; /* Make text bold */
+}
+
+.card button {
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: bold; /* Make button text bold */
+}
+
+.card button:hover {
+    background-color: gray;
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+/* Section padding */
+section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+/* Banner section */
+section.flex {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 25rem; /* Remove extra space above the banner */
+    padding-bottom: 25rem; /* Adjust margin to reduce space between header and banner */
+}
+
+@media (min-width: 640px) {
+    section.flex {
+        margin-top: -0.5rem; /* Slightly reduce the adjustment for larger screens */
+    }
+}
+
+@media (max-width: 640px) {
+    section.flex {
+        height: 400px; /* Set height to 400px for smaller screens */
+    }
+}
+
+/* Card grid gap */
+.grid {
+    gap: 3rem;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img {
+    width: 8rem;
+}
+
+footer a img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+footer a:hover img {
+    filter: brightness(0.7);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 400px) {
+    /* Navbar adjustments */
+    nav {
+        flex-wrap: nowrap; /* Ensure no wrapping in mobile view */
+        padding: 0.5rem; /* Reduce padding for mobile */
+    }
+
+    nav img {
+        width: 4rem; /* Smaller logo for mobile */
+    }
+
+    nav div {
+        gap: 0.5rem; /* Reduce spacing between buttons for mobile */
+    }
+
+    /* Banner adjustments */
+    section.flex {
+        height: 100px; /* Adjust height for mobile */
+        padding-left: -5rem; /* Reduce padding */
+        padding-right: -5rem;
+        padding-top: -5rem; /* Remove extra space above the banner */
+    margin-top: -20rem;
+margin-bottom: -20rem;} /* Adjust margin to reduce space between header and banner */
+    }
+
+    /* Product cards adjustments */
+    .card {
+        padding: 0.5rem; /* Reduce padding inside cards */
+    }
+
+    .card img {
+        width: 12rem; /* Smaller images for mobile */
+    }
+
+    .card button {
+        font-size: 0.75rem; /* Smaller button text */
+        padding: 0.25rem 0.5rem; /* Adjust button padding */
+    }
+
+    /* Footer adjustments */
+    footer {
+        flex-direction: column; /* Stack footer items vertically */
+        align-items: center;
+        gap: 1rem; /* Add spacing between items */
+        padding: 1rem; /* Adjust padding */
+    }
+
+    footer img {
+        width: 6rem; /* Smaller logo in footer */
+    }
+
+    footer a img {
+        width: 1.25rem; /* Smaller social icons */
+        height: 1.25rem;
+    }
+/* Sliding animation */
+@keyframes slide {
+    0%, 50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-slide {
+    width: 200%; /* Double the width for two images */
+    animation: slide 10s infinite;
+}
+

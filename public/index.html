@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Sizes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-white text-black">
+    <!-- Moving Text Bar -->
+    <div class="bg-white text-black py-2 overflow-hidden">
+        <marquee behavior="scroll" direction="left" scrollamount="8" class="text-sm sm:text-base">
+            ¡Bienvenidos a Another Sizes! Ofertas exclusivas en camisetas, hoodies y más. ¡No te lo pierdas!
+        </marquee>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-4 flex items-center justify-between flex-nowrap">
+        <a href="index.html">
+            <img src="/logo.svg" alt="logo" class="w-20 sm:w-32 ml-4">
+        </a>
+        <div class="flex gap-2 sm:gap-8 items-center">
+            <a href="index.html" class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Inicio</a>
+            <a href="index.html#camisetas"
+                class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Colección</a>
+            <a href="contact.html" class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Contacto</a>
+            <a href="cart.html">
+                <img src="/img/cart-icon.png" alt="Carrito" class="w-6 h-6">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sección Principal -->
+    <section class="relative overflow-hidden" style="height: 600px;">
+        <div class="absolute inset-0 flex transition-transform duration-1000 ease-in-out animate-slide">
+            <img src="/IMAGEN BANNER.png" alt="Hero Image 1" class="w-full h-full object-cover">
+            <img src="/disenos-dibujados-mano-ilustracion-ropa-calle_23-2149863504.avif" alt="Hero Image 2"
+                class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 flex flex-col justify-center items-center text-center text-white h-full">
+            <h1 class="text-3xl sm:text-5xl font-bold mb-4">Descubre Tu Estilo</h1>
+            <p class="text-lg sm:text-xl mb-6">Moda única para cada ocasión</p>
+            <a href="#coleccion"
+                class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition-transform transform hover:scale-105 text-sm sm:text-base">
+                Explorar Colección
+            </a>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="px-8 sm:px-16 pb-10">
+        <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">CAMISETAS</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Producto 1 -->
+            <a href="product-dance.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/CAMISA-DANCE.gif" alt="Producto 1" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$96.000</p>
+                <p class="text-sm sm:text-lg font-bold">$80.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+            <!-- Producto 2 -->
+            <a href="product-arte.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/CAMISA-ARTE.gif" alt="Producto 2" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$96.000</p>
+                <p class="text-sm sm:text-lg font-bold">$80.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+            <!-- Producto 3 -->
+            <a href="product-mariposa.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/CAMISA-MARIPOSA.gif" alt="Producto 3" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$96.000</p>
+                <p class="text-sm sm:text-lg font-bold">$80.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Busos -->
+    <section class="px-8 sm:px-16 pb-10">
+        <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">HOODIES</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Buso 1 -->
+            <a href="product-hoodie-arte.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/HODDY-ARTE.gif" alt="Buso 1" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$140.000</p>
+                <p class="text-sm sm:text-lg font-bold">$120.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+            <!-- Buso 2 -->
+            <a href="product-hoodie-dance.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/HODDY-DANCE.gif" alt="Buso 2" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$140.000</p>
+                <p class="text-sm sm:text-lg font-bold">$120.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+            <!-- Buso 3 -->
+            <a href="product-hoodie-mariposa.html"
+                class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/HODDY-MARIPOSA.gif" alt="Buso 3" class="w-48 sm:w-64 mb-4">
+                <div class="flex gap-2 mb-2">
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">S</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">M</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">L</button>
+                    <button class="bg-black text-white px-2 py-1 text-xs sm:text-sm rounded">XL</button>
+                </div>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$140.000</p>
+                <p class="text-sm sm:text-lg font-bold">$120.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Mujeres -->
+    <section class="px-8 sm:px-16 pb-10">
+        <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">MUJERES</h2>
+        <div class="flex justify-center gap-12">
+            <!-- Producto Mujeres 1 -->
+            <a href="product-body-costillero.html"
+                class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/BODY-COSTILLERO.gif" alt="Producto Mujeres 1" class="w-48 sm:w-64 mb-4">
+                <p class="text-sm sm:text-base mb-2">Talla Única</p>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$76.000</p>
+                <p class="text-sm sm:text-lg font-bold">$66.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+            <!-- Producto Mujeres 2 -->
+            <a href="product-body-espalda.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="/img/BODY-ESPALDA.gif" alt="Producto Mujeres 2" class="w-48 sm:w-64 mb-4">
+                <p class="text-sm sm:text-base mb-2">Talla Única</p>
+                <p class="line-through text-xs sm:text-sm text-gray-500">$76.000</p>
+                <p class="text-sm sm:text-lg font-bold">$66.000</p>
+                <button
+                    class="bg-black text-white px-4 py-2 mt-4 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-xs sm:text-sm">
+                    Comprar
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 flex justify-between items-center px-8">
+        <img src="/logo.svg" alt="Another Sizes Logo" class="w-32">
+        <div class="flex gap-6">
+            <a href="https://www.facebook.com/profile.php?id=61562906250418" target="_blank"
+                class="hover:text-gray-400">
+                <img src="/img/face.png" alt="Facebook" class="w-6 h-6">
+            </a>
+            <a href="https://www.instagram.com/another_sizes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" class="hover:text-gray-400">
+                <img src="/img/insta.png" alt="Instagram" class="w-6 h-6">
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text&type=phone_number&app_absent=0"
+                target="_blank" class="hover:text-gray-400">
+                <img src="/img/whatsa.png" alt="WhatsApp" class="w-6 h-6">
+            </a>
+            <a href="https://www.tiktok.com/@anothersizes?lang=es" target="_blank" class="hover:text-gray-400">
+                <img src="/img/tik.png" alt="WhatsApp" class="w-6 h-6">
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

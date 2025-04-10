@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-shirt Dance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-white text-black flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-4 flex items-center justify-between flex-nowrap">
+        <a href="index.html">
+            <img src="logo.svg" alt="logo" class="w-20 sm:w-32 ml-4">
+        </a>
+        <div class="flex gap-2 sm:gap-8 items-center">
+            <a href="index.html" class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Inicio</a>
+            <a href="index.html#camisetas" class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Colección</a>
+            <a href="contact.html" class="text-white hover:text-gray-400 text-xs sm:text-base font-sans">Contacto</a>
+            <a href="cart.html">
+                <img src="img/cart-icon.png" alt="Carrito" class="w-6 h-6">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="px-8 sm:px-16 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <!-- Product Image -->
+            <div class="border-2 border-black rounded-lg overflow-hidden">
+                <img src="img/CAMISA-DANCE.gif" alt="T-shirt Dance" class="w-full h-full object-cover">
+            </div>
+            <!-- Product Information -->
+            <div class="flex flex-col justify-between">
+                <div>
+                    <h1 class="text-2xl sm:text-4xl font-bold mb-4">T-shirt Savage Dance</h1>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4">Camiseta con diseño único inspirado en el arte del baile. Material de alta calidad y cómodo para cualquier ocasión.</p>
+                    <div class="flex gap-4 mb-4">
+                        <p class="line-through text-gray-500 text-sm sm:text-base">$96.000</p>
+                        <p class="text-lg sm:text-2xl font-bold">$80.000</p>
+                    </div>
+                    <!-- Sizes -->
+                    <div class="flex gap-2 mb-4">
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="S">S</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="M">M</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="L">L</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="XL">XL</button>
+                    </div>
+                    <p class="text-green-600 text-sm sm:text-base mb-4">Disponible</p>
+                    <div class="flex gap-4 items-center mb-4">
+                        <label for="quantity" class="text-sm sm:text-base">Cantidad:</label>
+                        <input id="quantity" type="number" min="1" value="1" class="border-2 border-black p-2 w-16 text-center">
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button id="add-to-cart-btn" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base">
+                            Agregar al Carrito
+                        </button>
+                        <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text=Quiero%20comprar%20la%20T-shirt%20Dance&type=phone_number&app_absent=0" target="_blank" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center">
+                            Comprar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="px-8 sm:px-16 py-10">
+        <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">Productos Relacionados</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Related Product 1 -->
+            <a href="product-arte.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="img/HODDY-ARTE.gif" alt="Hoodie Arte" class="w-48 sm:w-64 mb-4">
+                <p class="text-sm sm:text-lg font-bold mb-2">Hoodie Arte</p>
+                <p class="text-sm sm:text-base text-gray-500">$100.000</p>
+            </a>
+            <!-- Related Product 2 -->
+            <a href="product-body-costillero.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="img/BODY-COSTILLERO.gif" alt="Body Costillero" class="w-48 sm:w-64 mb-4">
+                <p class="text-sm sm:text-lg font-bold mb-2">Body Costillero</p>
+                <p class="text-sm sm:text-base text-gray-500">$66.000</p>
+            </a>
+            <!-- Related Product 3 -->
+            <a href="product-mariposa.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
+                <img src="img/CAMISA-MARIPOSA.gif" alt="T-shirt Mariposa" class="w-48 sm:w-64 mb-4">
+                <p class="text-sm sm:text-lg font-bold mb-2">T-shirt Mariposa</p>
+                <p class="text-sm sm:text-base text-gray-500">$80.000</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 flex justify-between items-center px-8 mt-auto">
+        <img src="logo.svg" alt="Another Sizes Logo" class="w-32">
+        <div class="flex gap-6">
+            <a href="https://www.facebook.com/profile.php?id=61562906250418" target="_blank" class="hover:text-gray-400">
+                <img src="img/face.png" alt="Facebook" class="w-6 h-6">
+            </a>
+            <a href="https://www.instagram.com/another_sizes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-gray-400">
+                <img src="img/insta.png" alt="Instagram" class="w-6 h-6">
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-gray-400">
+                <img src="img/whatsa.png" alt="WhatsApp" class="w-6 h-6">
+            </a>
+            <a href="https://www.tiktok.com/@anothersizes?lang=es" target="_blank" class="hover:text-gray-400">
+                <img src="img/tik.png" alt="TikTok" class="w-6 h-6">
+            </a>
+        </div>
+    </footer>
+    <script>
+        let selectedSize = null;
+        document.querySelectorAll('.size-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                selectedSize = button.getAttribute('data-size');
+                alert(`Talla seleccionada: ${selectedSize}`);
+            });
+        });
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            if (selectedSize) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({ productName: 'T-shirt Savage Dance', price: 80000, quantity, size: selectedSize });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${quantity} T-shirt Savage Dance(s) de talla ${selectedSize} agregado(s) al carrito.`);
+            } else {
+                alert('Por favor selecciona una talla antes de agregar al carrito.');
+            }
+        });
+    </script>
+</body>
+</html>
