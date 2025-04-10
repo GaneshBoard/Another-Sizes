@@ -42,10 +42,10 @@
                     </div>
                     <!-- Sizes -->
                     <div class="flex gap-2 mb-4">
-                        <button class="bg-black text-white px-4 py-2 text-xs sm:text-sm rounded">S</button>
-                        <button class="bg-black text-white px-4 py-2 text-xs sm:text-sm rounded">M</button>
-                        <button class="bg-black text-white px-4 py-2 text-xs sm:text-sm rounded">L</button>
-                        <button class="bg-black text-white px-4 py-2 text-xs sm:text-sm rounded">XL</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700">S</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700">M</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700">L</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700">XL</button>
                     </div>
                     <p class="text-green-600 text-sm sm:text-base mb-4">Disponible</p>
                     <div class="flex gap-4 items-center mb-4">
@@ -56,7 +56,7 @@
                         <button id="add-to-cart-btn" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base">
                             Agregar al Carrito
                         </button>
-                        <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text=Quiero%20comprar%20el%20Hoodie%20Mariposa&type=phone_number&app_absent=0" target="_blank" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center">
+                        <a href="cart.html" target="_blank" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center">
                             Comprar Ahora
                         </a>
                     </div>
@@ -114,21 +114,30 @@
             </a>
         </div>
     </footer>
-    <script>
-        function addToCart(productName, price) {
-            const quantity = parseInt(document.getElementById('quantity').value);
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({ productName, price, quantity });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${quantity} ${productName}(s) agregado(s) al carrito.`);
-        }
-
+        <script>
+        let selectedSize = null;
+        const sizeButtons = document.querySelectorAll('.size-btn');
+    
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Eliminar la clase de selección de todos los botones
+                sizeButtons.forEach(btn => btn.classList.remove('bg-gray-800', 'text-white'));
+                // Agregar la clase de selección al botón seleccionado
+                button.classList.add('bg-gray-800', 'text-white');
+                selectedSize = button.getAttribute('data-size');
+            });
+        });
+    
         document.getElementById('add-to-cart-btn').addEventListener('click', () => {
             const quantity = parseInt(document.getElementById('quantity').value);
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({ productName: 'Hoodie Mariposa', price: 100000, quantity });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${quantity} Hoodie Mariposa(s) agregado(s) al carrito.`);
+            if (selectedSize) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({ productName: 'T-shirt Savage Dance', price: 80000, quantity, size: selectedSize });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${quantity} T-shirt Savage Dance(s) de talla ${selectedSize} agregado(s) al carrito.`);
+            } else {
+                alert('Por favor selecciona una talla antes de agregar al carrito.');
+            }
         });
     </script>
 </body>

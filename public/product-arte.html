@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirt Arte</title>
+    <title>T-shirt living meking Art</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/styles.css">
 </head>
@@ -36,18 +36,17 @@
             <div class="flex flex-col justify-between">
                 <div>
                     <h1 class="text-2xl sm:text-4xl font-bold mb-4">T-shirt Arte</h1>
-                    <p class="text-gray-600 text-sm sm:text-base mb-4">Camiseta con diseño artístico único. Perfecta
-                        para expresar tu creatividad y estilo en cualquier ocasión.</p>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4">Camiseta con diseño único inspirado en el concepto de vivir por el arte. Material de alta calidad Algodon Peruano de 250g  y Cuello alto en Rift cómodo, estampados en DFT de alta calidad y duración, con detalles estampados en realieve que da un toque unico y exclusivo.</p>
                     <div class="flex gap-4 mb-4">
                         <p class="line-through text-gray-500 text-sm sm:text-base">$96.000</p>
                         <p class="text-lg sm:text-2xl font-bold">$80.000</p>
                     </div>
                     <!-- Sizes -->
                     <div class="flex gap-2 mb-4">
-                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="S">S</button>
-                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="M">M</button>
-                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="L">L</button>
-                        <button class="bg-black text-white px-4 py-2 rounded size-btn" data-size="XL">XL</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700" data-size="S">S</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700" data-size="M">M</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700" data-size="L">L</button>
+                        <button class="bg-black text-white px-4 py-2 rounded size-btn hover:bg-gray-700" data-size="XL">XL</button>
                     </div>
                     <p class="text-green-600 text-sm sm:text-base mb-4">Disponible</p>
                     <div class="flex gap-4 items-center mb-4">
@@ -60,7 +59,7 @@
                             class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base">
                             Agregar al Carrito
                         </button>
-                        <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text=Quiero%20comprar%20la%20T-shirt%20Arte&type=phone_number&app_absent=0"
+                        <a href="cart.html"
                             target="_blank"
                             class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center">
                             Comprar Ahora
@@ -70,6 +69,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Agrega este contenedor para la ventana emergente -->
+    <div id="cart-notification" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div class="bg-white text-black p-6 rounded shadow-lg">
+            <p id="cart-notification-message" class="text-sm sm:text-base text-center"></p>
+        </div>
+    </div>
 
     <!-- Related Products -->
     <section class="px-8 sm:px-16 py-10">
@@ -117,27 +123,52 @@
                 <img src="/img/tik.png" alt="TikTok" class="w-6 h-6">
             </a>
         </div>
-    </footer>
-    <script>
+    </footer>    
+   <script>
         let selectedSize = null;
-        document.querySelectorAll('.size-btn').forEach(button => {
+        const sizeButtons = document.querySelectorAll('.size-btn');
+    
+        sizeButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Eliminar la clase de selección de todos los botones
+                sizeButtons.forEach(btn => btn.classList.remove('bg-gray-800', 'text-white'));
+                // Agregar la clase de selección al botón seleccionado
+                button.classList.add('bg-gray-800', 'text-white');
                 selectedSize = button.getAttribute('data-size');
-                alert(`Talla seleccionada: ${selectedSize}`);
             });
         });
-        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+    
+        function showCartNotification(message) {
+            const notification = document.getElementById('cart-notification');
+            const messageElement = document.getElementById('cart-notification-message');
+            
+            // Actualiza el mensaje
+            messageElement.textContent = message;
+
+            // Muestra la notificación
+            notification.classList.remove('hidden');
+            notification.classList.add('flex');
+
+            // Oculta la notificación después de 3 segundos
+            setTimeout(() => {
+                notification.classList.add('hidden');
+                notification.classList.remove('flex');
+            }, 3000);
+        }
+
+        function addToCart(productName, price) {
             const quantity = parseInt(document.getElementById('quantity').value);
-            if (selectedSize) {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.push({ productName: 'T-shirt Arte', price: 80000, quantity, size: selectedSize });
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert(`${quantity} T-shirt Arte(s) de talla ${selectedSize} agregado(s) al carrito.`);
-            } else {
-                alert('Por favor selecciona una talla antes de agregar al carrito.');
-            }
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price, quantity });
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Muestra la notificación personalizada
+            showCartNotification(`${quantity} ${productName}(s) agregado(s) al carrito.`);
+        }
+
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            addToCart('Hoodie Arte', 100000);
         });
     </script>
 </body>
-
 </html>

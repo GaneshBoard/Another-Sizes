@@ -66,6 +66,13 @@
         </div>
     </section>
 
+    <!-- Agrega este contenedor para la ventana emergente -->
+    <div id="cart-notification" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div class="bg-white text-black p-6 rounded shadow-lg">
+            <p id="cart-notification-message" class="text-sm sm:text-base text-center"></p>
+        </div>
+    </div>
+
     <!-- Related Products -->
     <section class="px-8 sm:px-16 py-10">
         <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">Productos Relacionados</h2>
@@ -110,12 +117,32 @@
         </div>
     </footer>
     <script>
+        function showCartNotification(message) {
+            const notification = document.getElementById('cart-notification');
+            const messageElement = document.getElementById('cart-notification-message');
+            
+            // Actualiza el mensaje
+            messageElement.textContent = message;
+
+            // Muestra la notificación
+            notification.classList.remove('hidden');
+            notification.classList.add('flex');
+
+            // Oculta la notificación después de 3 segundos
+            setTimeout(() => {
+                notification.classList.add('hidden');
+                notification.classList.remove('flex');
+            }, 3000);
+        }
+
         function addToCart(productName, price) {
             const quantity = parseInt(document.getElementById('quantity').value);
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push({ productName, price, quantity });
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${quantity} ${productName}(s) agregado(s) al carrito.`);
+
+            // Muestra la notificación personalizada
+            showCartNotification(`${quantity} ${productName}(s) agregado(s) al carrito.`);
         }
 
         let selectedDesign = null;
@@ -131,10 +158,14 @@
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.push({ productName: 'Body Costillero', price: 66000, quantity, design: selectedDesign });
                 localStorage.setItem('cart', JSON.stringify(cart));
-                alert(`${quantity} Body Costillero(s) con diseño ${selectedDesign} agregado(s) al carrito.`);
+                showCartNotification(`${quantity} Body Costillero(s) con diseño ${selectedDesign} agregado(s) al carrito.`);
             } else {
                 alert('Por favor selecciona un diseño antes de agregar al carrito.');
             }
+        });
+
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            addToCart('Hoodie Arte', 100000);
         });
     </script>
 </body>

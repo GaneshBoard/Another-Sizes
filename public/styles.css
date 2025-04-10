@@ -219,3 +219,27 @@ margin-bottom: -20rem;} /* Adjust margin to reduce space between header and bann
         width: 1.25rem; /* Smaller social icons */
         height: 1.25rem;
     }
+
+
+/* Opcional: estilos adicionales */
+#cart-notification {
+    animation: fade-in 0.3s ease-out, fade-out 0.3s ease-in 2.7s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
