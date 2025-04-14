@@ -46,6 +46,7 @@ nav button {
 
 nav button:hover {
     color: gray;
+    scale: 1.1;
 }
 
 nav div a img {
