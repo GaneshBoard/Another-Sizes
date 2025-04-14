@@ -86,7 +86,7 @@
                             <img src="img/payment-icon.png" alt="Payment Icon" class="w-12 h-12">
                             <div>
                                 <p class="font-bold text-sm sm:text-base">*MÉTODOS DE PAGO*</p>
-                                <p class="text-sm sm:text-base">Tarjeta de crédito, débito, contraentrega y ADDI.</p>
+                                <p class="text-sm sm:text-base">Tarjeta de crédito, débito, NEQUI, PSE, Bancolombia, Davivienda</p>
                             </div>
                         </div>
                     </div>
@@ -130,6 +130,20 @@
     <div id="cart-notification" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div class="bg-white text-black p-6 rounded shadow-lg">
             <p id="cart-notification-message" class="text-sm sm:text-base text-center"></p>
+        </div>
+    </div>
+
+    <!-- Cart Slider -->
+    <div id="cart-slider" class="cart-slider">
+        <div class="cart-slider-header">
+            <h2>Carrito</h2>
+            <button onclick="toggleCart()">X</button>
+        </div>
+        <div class="cart-slider-content">
+            <p>Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-slider-footer">
+            <button class="bg-black text-white px-4 py-2 rounded">Finalizar Compra</button>
         </div>
     </div>
 
@@ -196,6 +210,11 @@
         document.getElementById('add-to-cart-btn').addEventListener('click', () => {
             addToCart('Hoodie Arte', 100000);
         });
+
+        function toggleCart() {
+            const cartSlider = document.getElementById('cart-slider');
+            cartSlider.classList.toggle('open');
+        }
     </script>
 </body>
 </html>
