@@ -21,56 +21,63 @@
         </div>
     </nav>
 
-    <!-- Cart Section -->
-    <section class="px-8 sm:px-16 py-10">
-        <h1 class="text-2xl sm:text-4xl font-bold mb-8">Carrito de Compras</h1>
-        <div id="cart-items" class="flex flex-col gap-4 border-2 border-black p-6 rounded-lg bg-gray-100">
-            <!-- Cart items will be dynamically added here -->
-        </div>
-        <div class="mt-8">
-            <!-- Botón de Wompi -->
-            <form>
-                <script
-                    src="https://checkout.wompi.co/widget.js"
-                    data-render="button"
-                    data-public-key="pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH"
-                    data-currency="COP"
-                    data-amount-in-cents="7890000"
-                    data-reference="37DNKF84S92N1S"
-                    data-signature:integrity="37c8407747e595535433ef8f6a811d853cd943046624a0ec04662b17bbf33bf5"
-                    data-redirect-url="https://transaction-redirect.wompi.co/check"
-                    data-expiration-time="2023-06-09T20:28:50.000Z"
-                    data-tax-in-cents:consumption="590000"
-                    data-tax-in-cents:vat="1290000"
-                    data-customer-data:email="lola@perez.com"
-                    data-customer-data:full-name="Lola Perez"
-                    data-customer-data:phone-number="3019777777"
-                    data-customer-data:phone-number-prefix="+57"
-                    data-customer-data:legal-id="123456789"
-                    data-customer-data:legal-id-type="CC"
-                    data-shipping-address:address-line-1="Carrera 123 # 4-5"
-                    data-shipping-address:address-line-2="apto 123"
-                    data-shipping-address:country="CO"
-                    data-shipping-address:city="Bogota"
-                    data-shipping-address:phone-number="3019988888"
-                    data-shipping-address:region="Cundinamarca"
-                    data-shipping-address:name="Pedro Perez"
-                ></script>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto bg-white p-8 mt-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-8">
+        <!-- Cart Section -->
+        <section class="flex-1">
+            <h1 class="text-2xl sm:text-4xl font-bold mb-8">Carrito de Compras</h1>
+            <div id="cart-items" class="flex flex-col gap-4">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="mt-8">
+                <p id="total-price" class="text-lg sm:text-2xl font-bold">Total: $0</p>
+            </div>
+        </section>
+
+        <!-- Checkout Form -->
+        <section class="flex-1">
+            <h2 class="text-xl sm:text-2xl font-bold mb-6">Información de Compra</h2>
+            <form action="cart.html" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded p-2 mt-1">
+                </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium">Ciudad</label>
+                    <input type="text" id="address" name="address" required class="w-full border border-gray-300 rounded p-2 mt-1">
+                </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium">Dirección</label>
+                    <input type="text" id="address" name="address" required class="w-full border border-gray-300 rounded p-2 mt-1">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 rounded p-2 mt-1">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded p-2 mt-1">
+                </div>
+
+                <!-- Botón de Wompi (se renderiza dinámicamente) -->
+                <div id="wompi-button" class="text-center mt-6">
+                    <!-- Aquí se inyectará el botón dinámico -->
+                </div>
             </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-4 flex justify-between items-center px-8 mt-auto">
+    <footer class="bg-black text-white py-4 flex justify-between items-center px-8 mt-auto w-full">
         <img src="logo.svg" alt="Another Sizes Logo" class="w-32">
         <div class="flex gap-6">
             <a href="https://www.facebook.com/profile.php?id=61562906250418" target="_blank" class="hover:text-gray-400">
                 <img src="img/face.png" alt="Facebook" class="w-6 h-6">
             </a>
-            <a href="https://www.instagram.com/another_sizes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-gray-400">
+            <a href="https://www.instagram.com/another_sizes" target="_blank" class="hover:text-gray-400">
                 <img src="img/insta.png" alt="Instagram" class="w-6 h-6">
             </a>
-            <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-gray-400">
+            <a href="https://api.whatsapp.com/send/?phone=%2B573206097543" target="_blank" class="hover:text-gray-400">
                 <img src="img/whatsa.png" alt="WhatsApp" class="w-6 h-6">
             </a>
             <a href="https://www.tiktok.com/@anothersizes?lang=es" target="_blank" class="hover:text-gray-400">
@@ -80,8 +87,7 @@
     </footer>
 
     <script>
-        // JavaScript para renderizar el carrito con información de tallas
-        const cartItemsContainer = document.getElementById('cart-items');
+    const cartItemsContainer = document.getElementById('cart-items');
         const totalPriceElement = document.getElementById('total-price');
 
         function renderCart() {
@@ -90,26 +96,32 @@
             let total = 0;
 
             cart.forEach((item, index) => {
-                total += item.price * item.quantity;
+                const price = parseFloat(item.price) || 0;
+                const quantity = parseInt(item.quantity, 10) || 0;
+
+                if (price <= 0 || quantity <= 0) {
+                    console.error(`Datos inválidos para el producto: ${item.productName}`);
+                    return;
+                }
+
+                const itemTotal = price * quantity;
+                total += itemTotal;
+
                 const itemElement = document.createElement('div');
-                itemElement.className = 'flex justify-between items-center border-b pb-2';
+                itemElement.className = 'flex justify-between items-center border-b pb-2 gap-4';
                 itemElement.innerHTML = `
-                    <div class="flex flex-col sm:flex-row sm:justify-between w-full">
-                        <div>
-                            <p class="text-sm sm:text-base font-bold">${item.productName}</p>
-                            <p class="text-sm sm:text-base">Talla: ${item.size}</p>
-                            <p class="text-sm sm:text-base">Cantidad: ${item.quantity}</p>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <p class="text-sm sm:text-base font-bold">$${item.price * item.quantity}</p>
-                            <button class="text-red-500 text-xs sm:text-sm" onclick="removeFromCart(${index})">Eliminar</button>
-                        </div>
+                    <div class="flex items-center gap-4">
+                        <img src="${item.image}" alt="${item.productName}" class="w-16 h-16 object-cover rounded">
+                        <p class="text-sm sm:text-base">${item.productName} (x${quantity})</p>
                     </div>
+                    <p class="text-sm sm:text-base">$${itemTotal.toFixed(2)}</p>
+                    <button class="text-red-500 text-xs sm:text-sm" onclick="removeFromCart(${index})">Eliminar</button>
                 `;
                 cartItemsContainer.appendChild(itemElement);
             });
 
-            totalPriceElement.textContent = `Total: $${total}`;
+            totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
+            renderWompiButton(total);
         }
 
         function removeFromCart(index) {
@@ -119,7 +131,23 @@
             renderCart();
         }
 
+        function renderWompiButton(totalAmount) {
+            const wompiContainer = document.getElementById('wompi-button');
+            wompiContainer.innerHTML = '';
+
+            const wompiScript = document.createElement('script');
+            wompiScript.src = "https://checkout.wompi.co/widget.js";
+            wompiScript.setAttribute("data-render", "button");
+            wompiScript.setAttribute("data-public-key", "pub_prod_tseXJGuHcYSvcTVY91op37poFwve41PZ");
+            wompiScript.setAttribute("data-currency", "COP");
+            wompiScript.setAttribute("data-amount-in-cents", Math.round(totalAmount * 100));
+            wompiScript.setAttribute("data-reference", "RFC_" + Date.now());
+            wompiScript.setAttribute("data-signature:integrity", "prod_integrity_9gU2xnBQaXO2YFdm8YMlaeBd67wr43Xq");
+            wompiScript.setAttribute("data-redirect-url", "https://transaction-redirect.wompi.co/check");
+
+            wompiContainer.appendChild(wompiScript);
+        }
+
         renderCart();
     </script>
-</body>
-</html>
+</body></html>
