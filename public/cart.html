@@ -24,14 +24,39 @@
     <!-- Cart Section -->
     <section class="px-8 sm:px-16 py-10">
         <h1 class="text-2xl sm:text-4xl font-bold mb-8">Carrito de Compras</h1>
-        <div id="cart-items" class="flex flex-col gap-4">
+        <div id="cart-items" class="flex flex-col gap-4 border-2 border-black p-6 rounded-lg bg-gray-100">
             <!-- Cart items will be dynamically added here -->
         </div>
         <div class="mt-8">
-            <p id="total-price" class="text-lg sm:text-2xl font-bold">Total: $0</p>
-            <button id="checkout-btn" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base mt-4">
-                Finalizar Compra
-            </button>
+            <!-- Botón de Wompi -->
+            <form>
+                <script
+                    src="https://checkout.wompi.co/widget.js"
+                    data-render="button"
+                    data-public-key="pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH"
+                    data-currency="COP"
+                    data-amount-in-cents="7890000"
+                    data-reference="37DNKF84S92N1S"
+                    data-signature:integrity="37c8407747e595535433ef8f6a811d853cd943046624a0ec04662b17bbf33bf5"
+                    data-redirect-url="https://transaction-redirect.wompi.co/check"
+                    data-expiration-time="2023-06-09T20:28:50.000Z"
+                    data-tax-in-cents:consumption="590000"
+                    data-tax-in-cents:vat="1290000"
+                    data-customer-data:email="lola@perez.com"
+                    data-customer-data:full-name="Lola Perez"
+                    data-customer-data:phone-number="3019777777"
+                    data-customer-data:phone-number-prefix="+57"
+                    data-customer-data:legal-id="123456789"
+                    data-customer-data:legal-id-type="CC"
+                    data-shipping-address:address-line-1="Carrera 123 # 4-5"
+                    data-shipping-address:address-line-2="apto 123"
+                    data-shipping-address:country="CO"
+                    data-shipping-address:city="Bogota"
+                    data-shipping-address:phone-number="3019988888"
+                    data-shipping-address:region="Cundinamarca"
+                    data-shipping-address:name="Pedro Perez"
+                ></script>
+            </form>
         </div>
     </section>
 
@@ -55,7 +80,7 @@
     </footer>
 
     <script>
-        // JavaScript for cart functionality
+        // JavaScript para renderizar el carrito con información de tallas
         const cartItemsContainer = document.getElementById('cart-items');
         const totalPriceElement = document.getElementById('total-price');
 
@@ -69,9 +94,17 @@
                 const itemElement = document.createElement('div');
                 itemElement.className = 'flex justify-between items-center border-b pb-2';
                 itemElement.innerHTML = `
-                    <p class="text-sm sm:text-base">${item.productName} (x${item.quantity})</p>
-                    <p class="text-sm sm:text-base">$${item.price * item.quantity}</p>
-                    <button class="text-red-500 text-xs sm:text-sm" onclick="removeFromCart(${index})">Eliminar</button>
+                    <div class="flex flex-col sm:flex-row sm:justify-between w-full">
+                        <div>
+                            <p class="text-sm sm:text-base font-bold">${item.productName}</p>
+                            <p class="text-sm sm:text-base">Talla: ${item.size}</p>
+                            <p class="text-sm sm:text-base">Cantidad: ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="text-sm sm:text-base font-bold">$${item.price * item.quantity}</p>
+                            <button class="text-red-500 text-xs sm:text-sm" onclick="removeFromCart(${index})">Eliminar</button>
+                        </div>
+                    </div>
                 `;
                 cartItemsContainer.appendChild(itemElement);
             });
