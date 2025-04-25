@@ -24,6 +24,11 @@
         </div>
     </nav>
 
+    <!-- WhatsApp Purchase Message -->
+    <div class="bg-yellow-200 text-black text-center py-2">
+        <p class="text-sm sm:text-base font-bold">Todas las compras y pagos se realizan exclusivamente a través de WhatsApp. ¡Contáctanos para más información!</p>
+    </div>
+
     <!-- Product Detail Section -->
     <section class="px-8 sm:px-16 py-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -56,9 +61,43 @@
                         <button id="add-to-cart-btn" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base">
                             Agregar al Carrito
                         </button>
-                        <a href="cart.html" target="_blank" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center">
-                            Comprar Ahora
+                        <a href="https://api.whatsapp.com/send/?phone=%2B573207566403&text=Quiero%20comprar%20el%20T-shirt%20Savage%20Dance" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 hover:scale-105 transition-transform text-sm sm:text-base flex items-center justify-center gap-2">
+                            <img src="img/whatsa.png" alt="WhatsApp Icon" class="w-4 h-4">
+                            Comprar por WhatsApp
                         </a>
+                        <button class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 hover:scale-105 transition-transform text-sm sm:text-base text-center hidden">
+                            Comprar Ahora
+                        </button>
+                    </div>
+
+                    <!-- New Section -->
+                    <div class="mt-6 flex flex-col gap-6">
+                        <!-- Free Shipping -->
+                        <div class="flex items-start gap-4">
+                            <img src="img/BOX.png" alt="Shipping Icon" class="w-12 h-12">
+                            <div>
+                                <p class="font-bold text-sm sm:text-base">COSTOS DE ENVÍO</p>
+                                <p class="text-sm sm:text-base">Costos de envío $15.000.</p>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Time -->
+                        <div class="flex items-start gap-4">
+                            <img src="img/RELOJ.png" alt="Delivery Icon" class="w-12 h-12">
+                            <div>
+                                <p class="font-bold text-sm sm:text-base">TE LLEGA EN 6 DÍAS</p>
+                                <p class="text-sm sm:text-base">Solo 6 días hábiles para ciudades principales.</p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="flex items-start gap-4">
+                            <img src="img/TARGETA.png" alt="Payment Icon" class="w-12 h-12">
+                            <div>
+                                <p class="font-bold text-sm sm:text-base">MÉTODOS DE PAGO</p>
+                                <p class="text-sm sm:text-base">Tarjeta de crédito, débito, NEQUI, PSE, Bancolombia, Davivienda</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,6 +111,20 @@
         </div>
     </div>
 
+    <!-- Carrito deslizante -->
+    <div id="cart-slider" class="cart-slider">
+        <div class="cart-slider-header">
+            <h2>Carrito</h2>
+            <button onclick="toggleCart()">X</button>
+        </div>
+        <div class="cart-slider-content">
+            <p>Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-slider-footer">
+            <button class="bg-black text-white px-4 py-2 rounded">Finalizar Compra</button>
+        </div>
+    </div>
+
     <!-- Related Products -->
     <section class="px-8 sm:px-16 py-10">
         <h2 class="text-center text-lg sm:text-2xl font-bold mb-8">Productos Relacionados</h2>
@@ -80,7 +133,7 @@
             <a href="product-arte.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
                 <img src="img/HODDY-ARTE.gif" alt="Hoodie Arte" class="w-48 sm:w-64 mb-4">
                 <p class="text-sm sm:text-lg font-bold mb-2">Hoodie Arte</p>
-                <p class="text-sm sm:text-base text-gray-500">$100.000</p>
+                <p class="text-sm sm:text-base text-gray-500">$140.000</p>
             </a>
             <!-- Related Product 2 -->
             <a href="product-body-costillero.html" class="border-2 border-black p-4 rounded-lg flex flex-col items-center">
@@ -107,7 +160,7 @@
             <a href="https://www.instagram.com/another_sizes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-gray-400">
                 <img src="img/insta.png" alt="Instagram" class="w-6 h-6">
             </a>
-            <a href="https://api.whatsapp.com/send/?phone=%2B573206097543&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-gray-400">
+            <a href="https://api.whatsapp.com/send/?phone=%2B573207566403&text&type=phone_number&app_absent=0" target="_blank" class="hover:text-gray-400">
                 <img src="img/whatsa.png" alt="WhatsApp" class="w-6 h-6">
             </a>
             <a href="https://www.tiktok.com/@anothersizes?lang=es" target="_blank" class="hover:text-gray-400">
@@ -169,6 +222,11 @@
                 alert('Por favor selecciona una talla antes de agregar al carrito.');
             }
         });
+
+        function toggleCart() {
+            const cartSlider = document.getElementById('cart-slider');
+            cartSlider.classList.toggle('open');
+        }
     </script>
 </body>
 </html>
